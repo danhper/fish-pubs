@@ -38,6 +38,13 @@ complete -f -c pubs -n '__fish_prog_needs_command' -a remove -d 'removes a publi
 complete -f -c pubs -n '__fish_prog_using_command remove' -a '(__pubs_papers_completion)'
 
 complete -f -c pubs -n '__fish_prog_needs_command' -a list -d 'list papers'
+complete -f -c pubs -n '__fish_prog_using_command list' -l ignore-case
+complete -f -c pubs -n '__fish_prog_using_command list' -l alphabetical -d 'lexicographic order on the citekeys'
+complete -f -c pubs -n '__fish_prog_using_command list' -l citekeys-only -d 'only returns citekeys of matching papers'
+complete -f -c pubs -n '__fish_prog_using_command list' -a '(pubs tag | tr " " "\n" | sed -e "s/^/tags:/")'
+complete -f -c pubs -n '__fish_prog_using_command list' -a 'title:'
+complete -f -c pubs -n '__fish_prog_using_command list' -a 'author:'
+complete -f -c pubs -n '__fish_prog_using_command list' -a 'year:'
 
 complete -f -c pubs -n '__fish_prog_needs_command' -a doc -d 'manage the document relating to a publication'
 complete -f -c pubs -n '__fish_prog_using_command doc; and __pubs_arg_number 2' -a 'add' -d 'add a document to a publication'
